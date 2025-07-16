@@ -20,9 +20,13 @@
       $stmt = $pdo->query("SELECT * FROM tasks ORDER BY created_at DESC");
       while ($task = $stmt ->fetch()) {
         # code...
-        echo "<li>";
+        echo '<div style="display: flex; justify-content: space-between; align-items: center; width: 200px;">';
         echo $task['is_done']? '<s>' . htmlspecialchars($task['title']) . '</s>' : htmlspecialchars($task['title']);
-        echo "</li>";
+        echo '<form method="POST" action="delete_task.php" style="margin:0px;">
+          <input type="hidden" name="id"; value="'.$task['id'].'">
+          <button type="submit" name="delete-task" style="margin-left:10px;">حذف </button>
+        </form>';
+        echo '</div>';
       }
     ?>
   </ul>
