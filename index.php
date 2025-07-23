@@ -26,6 +26,10 @@
           <input type="hidden" name="id"; value="'.$task['id'].'">
           <button type="submit" name="delete-task" style="margin-left:10px;">حذف </button>
         </form>';
+        echo '<form method="POST" action="edit_task.php">
+        <input type="hidden" name="id" value="'.$task['id'].'">
+        <button type="submit" name="edit-task">ویرایش</button>
+        </form>';
         echo '</div>';
       }
     ?>
