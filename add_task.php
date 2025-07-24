@@ -1,6 +1,5 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_error',1);
+
 include 'db.php';
 //echo "<pre>";
 //print_r($_POST);

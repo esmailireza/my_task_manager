@@ -23,11 +23,11 @@
         echo '<div style="display: flex; justify-content: space-between; align-items: center; width: 200px;">';
         echo $task['is_done']? '<s>' . htmlspecialchars($task['title']) . '</s>' : htmlspecialchars($task['title']);
         echo '<form method="POST" action="delete_task.php" style="margin:0px;">
-          <input type="hidden" name="id"; value="'.$task['id'].'">
+          <input type="hidden" name="id"; value="'.htmlspecialchars($task['id']).'">
           <button type="submit" name="delete-task" style="margin-left:10px;">حذف </button>
         </form>';
         echo '<form method="POST" action="edit_task.php">
-        <input type="hidden" name="id" value="'.$task['id'].'">
+        <input type="hidden" name="id" value="'.htmlspecialchars($task['id']).'">
         <button type="submit" name="edit-task">ویرایش</button>
         </form>';
         echo '</div>';
