@@ -8,19 +8,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>My Tasks</h1>
+  <div>
+    <h1>My Tasks</h1>
+    <form action="add_task.php" method="POST">
+      <input type="text" name="title" placeholder="New task..." required>
+      <button type="submit">Add</button>
+    </form>
 
-  <form action="add_task.php" method="POST">
-    <input type="text" name="title" placeholder="New task..." required>
-    <button type="submit">Add</button>
-  </form>
-
-  <ul>
+    <div style="margin-top: 30px;">
     <?php
       $stmt = $pdo->query("SELECT * FROM tasks ORDER BY created_at DESC");
       while ($task = $stmt ->fetch()) {
         # code...
-        echo '<div style="display: flex; justify-content: space-between; align-items: center; width: 200px;">';
+        echo '<div style="display: flex; justify-content: space-between; align-items: center; width: 300px; margin-bottom:10px; border:1px solid gray; padding:8px; border-raduis:20px;">';
         echo '<form method="POST" action="toggle_done.php">
           <input type="hidden" name="id"; value="'.htmlspecialchars($task['id']).'">
           <input type="checkbox" name="is_done" onchange="this.form.submit()"'.($task['is_done'] ? 'checked' : '').'>
@@ -37,6 +37,8 @@
         echo '</div>';
       }
     ?>
-  </ul>
+  </div>
+  </div>
+
 </body>
 </html>
